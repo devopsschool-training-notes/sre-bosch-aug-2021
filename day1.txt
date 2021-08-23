@@ -106,6 +106,144 @@ Step 6 - Check a Commit History
   520  git show e15f677163f34617d473a61866d6a2f8e731c68d
   521  history
 ============================
+How do i share a code?
+----------------------------------
+github
+gitlab
+bitbucket
+google gerrit
+
+Step 1 - Register at github.com
+
+Step 2 - Create a repo aka project
+
+Step 3 - git push to github from local
+
+==========================================
+How to branch?
+	LOCAL		READ & WRITE
+	REMOTE		READ only
+	TEMp
+How to merge 2 branches?
+	Fast forward		[ ASSIGNMENT ]
+	recursive		[ ASSIGNMENT ]
+	cherry-pick		[ ASSIGNMENT ]
+	rebase
+	reset----
+How to resolve a conflict?
+
+How to undo?
+================================
+
+
+=============================================================================================
+=============================================================================================
+What is Jenkins?
+	CI tool
+	- Automate SDLC phases
+	- integ tools
+	- Imm feedback
+	- Schedule
+	
+	Release	
+	- Jenkins		---- FREE & OS
+	- Cloud Bees
+	- Jenkins X
+	- Blue Ocean
+
+	JAVA
+	Powered by Plugins (1000+)s
+
+What is CI?
+------------------
+Auto Build + Auto Testing
+------------------------
+	imm feedback
+
+
+---------------------------------------OPS------------------------------------------- 
+--ARCH----  ---------------------DEV----------------------------  ---------QA--------
+PLAN -> Coding -> Review -> Build -> UT -> Pack -> Archive -> Dep2Q -> AT -> CC 
+-------------------------------------------------------------------------------
+JIRA -> Git -> SonarQube -> Maven -> Junit -> WAR -> Artifactory -> Ansible -> Selenium -> Jacoco
+=========================================================================================
+					Jenkins
+
+Integ 
+	- TEAM
+	- Phases
+	- TOOLs
+	--------------------
+	Continouly 
+	-----------------
+	Called - CI
+
+	How??????
+
+How jenkins Works? - 
+===================================
+
+
+How to install jenkins server?
+65.1.3.158
+
+-------------------------------------------
+----------------------------------------------------
+SECRET FORMULA
+=================================
+
+Secret formula to work with Jenkins?
+=========================================
+What is your Technology?
+				version		gd or not?
+		Java
+		dotnet
+		node
+		python
+		ruby
+
+Where is the code?	
+				repo loc	access		branch?
+		git	
+		svn
+		p4
+		tfs
+	
+What is your builders?
+		Anything
+		maven	pom.xml		goal	compile -> test -> package 
+		ant	build.xml	target		
+		gradle	gradle.build	Tasks
+		msbuild	default.msbuild target	
+
+	
+How frequenly you want this job to be triggered?
+		hourly
+
+How you want a feedback of this job?
+		email - rajesh@devopsschool.com
+------------------------------------- 
+What is your Technology?
+		Java				JAVA
+Where is the code?
+		https://github.com/devopsschool-demo-labs-projects/helloworld-java-maven	GIT
+How frequenly you want this job to be triggered?
+		hourly
+What is your builders?
+		maven						MAVEN
+		compile -> test -> package 
+How you want a feedback of this job?				
+		email to rajesh@devopsschool.com
+
+======================================================================================
+
+Lab - https://www.devopsschool.com/blog/configure-jenkins-first-job-of-java-code-base-with-maven-build-tool/
+
+3 Jobs
+1 FOLDER
+3 LIST VIEW
+
+
 
 
 
