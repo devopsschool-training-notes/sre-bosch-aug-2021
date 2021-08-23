@@ -1,0 +1,137 @@
+SDLC Cycle
+----------------------------
+PLAN
+	JIRA - Confluence
+
+DEV
+	IDE
+	VERSION - git
+	Code Analysis - SonarQube
+	UT - 
+	Build Tools - Maven 
+	Pack - 
+	Archive Pack - 
+	
+	Deploy2QA ----> Ansible
+	
+	Infra Coding on Cloud - Using terraform
+	
+	AT - Sel
+
+	Code Coverage ---
+	-----------------------------
+	PASS OR FAIL
+
+	PROD
+	---- AWS + Azure
+	---- TERRAFORM
+
+	Monitoring
+QA
+
+
+OPS
+
+https://www.devopsschool.com/path/	
+=========================================================================================
+Git - 2 Hours
+Jenkins - 2 Hours
+Docker - 4 Hours
+=========================================================================================
+What is Git?
+	- Code Versioning tool
+	----ITS NOT A FILE Versioning tool ---WHY? [ASSIGNMENT#1]
+	----ITS A FILE SYSTEM Versioning tool ---WHY? [ASSIGNMENT#1] 
+	
+	- Distributed Version Control System
+
+Why Git?
+	I want to know...all follwing qs for my code
+	- WHO?
+	- WHEN?
+	- WHAT?
+	- WHERE?
+	- WHY
+
+How to install git?
+	- windows - exe https://git-scm.com/
+		cmd
+		bash ?? ------ basic linux command you can run in windows
+
+	- sourcetree / tortoisegit /visualcode / eclipse
+
+	- linux - apt install git
+		yum install git
+	- max - DMG
+
+Git workflow - How git works????
+-----------------------
+Step 1 - create a repo
+
+Step 2 - Do you have code which you want to version?
+
+
+Step 3 - SET YOUR NAME and Email ID (ONE TIME)
+
+
+Step 4 - ADD a file to git
+
+
+Step 5 - Commit a file to git
+
+
+Step 6 - Check a Commit History
+
+
+============================
+ 501  cd /e
+  502  mkdir gitdemo
+  503  cd gitdemo/
+  504  start .
+  505  git init
+  506  start .
+  507  clear
+  508  git config user.name "Rajesh Kumar"
+  509  git config user.name "Rajesh Kumar"
+  510  git config user.email "rajesh@devopsshool.com"
+  511  ls
+  512  clear
+  513  git add file1.java
+  514  git commit -m"Adding my first commit"
+  515  git log]
+  516  clear
+  517  git log
+  518  clear
+  519  git log
+  520  git show e15f677163f34617d473a61866d6a2f8e731c68d
+  521  history
+============================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
