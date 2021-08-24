@@ -148,6 +148,10 @@ How to install docker?
 ---------------------------------------------------
 https://devopsschool.com/tutorial/docker/install-config/index.html
 3.109.203.197
+ubuntu
+ubuntu123
+
+$ sudo -s
 
     1  clear
     2  ls
@@ -227,13 +231,119 @@ create -> start -> stop -> start -> restart -> pause -> unpause -> kill -> remov
 
 
 
-How to use container?
-==================================================
 
 Assignment - 10 mins
 -----------------------------
 What is the difference between docker Stop Vs docker Kill?
 What is the difference between docker Pause Vs docker Unpuase?
+
+run
+================================================================
+pull -> create --> start --> attached to PID 1 of the container
+
+
+run -d
+================================================================
+pull -> create --> start --> attached to PID 1 of the container
+
+How to use container?
+==================================================
+Get Inside
+	- ps
+	- bash
+
+exec 
+	using exec - you can execute ANY executables inside a container
+	using exec & shell & -it - you can do inside
+
+attach
+	attached it pid1
+
+Access from Outside
+	- network
+
+
+  152  c;ear
+  153  clear
+  154  docker ps
+  155  docker kill $(docker ps -q)
+  156  docker rm $(docker ps -a -q)
+  157  clear
+  158  docker ps -a
+  159  exit
+  160  clear
+  161  docker ps -a
+  162  docker run httpd
+  163  clear
+  164  docker run -d httpd
+  165  docker ps
+  166  docker run -d httpd
+  167  docker ps
+  168  docker run -d httpd
+  169  docker ps
+  170  clear
+  171  ps
+  172  clear
+  173  docker ps
+  174  clear
+  175  docker ps
+  176  docker exec 58af5e09ad8e ls
+  177  docker exec 58af5e09ad8e df -kh
+  178  docker exec 58af5e09ad8e ps -eaf
+  179  clear
+  180  docker ps
+  181  docker exec -it 58af5e09ad8e /bin/bash
+  182  clear
+  183  docker exec -it 58af5e09ad8e /bin/bash
+  184  docker ps -a
+  185  cd /bin/
+  186  ls
+  187  ls | wc -l
+  188  cd -
+  189  clear
+  190  ls
+  191  docker run -d jenkins/jenkins
+  192  docker ps
+  193  docker exec 25d6a6104b62 ps -eaf
+  194  docker exec 25d6a6104b62 ps
+  195  clear
+  196  docker run -itd ubuntu
+  197  docker ps
+  198  docker exec 91e9faaeb887 ps -eaf
+  199  ls
+  200  ps
+  201  docker attach 25d6a6104b62
+  202  docker attach 91e9faaeb887
+  203  clear
+  204  docker ps
+  205  docker inspect 58af5e09ad8e
+  206  cleare
+  207  clear
+  208  ping 172.17.0.4
+  209  http://172.17.0.4
+  210  curl http://172.17.0.4
+  211  clear
+  212  docker ps
+  213  docker run -d -p 81:80 httpd
+  214  docker run -d -p 82:80 httpd
+  215  docker ps
+
+
+
+Docker Host = A Place where docker engine installed
+------------
+Docker Machine?
+- Tool
+
+
+
+
+
+
+
+
+
+
 
 
 
