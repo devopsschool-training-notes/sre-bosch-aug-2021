@@ -335,23 +335,292 @@ Docker Host = A Place where docker engine installed
 Docker Machine?
 - Tool
 
+=====================2 Days=========================
+Creating Images using Docker file
+Deep dive into Docker Images, Docker file, Containers, Networks, Volumes, Docker Config 
+Docker Compose  - 1 Days
+==============================================
+manager - RFS - ubuntu + git + apache == 2 mins
+===============================================
+FROM ubuntu
+MAINTAINER Rajeshkumar rajesh@devopsschool.com
+RUN apt-get update
+RUN apt-get install git -y
+
+=============================================
+docker command -40 commands --- RUNN FULL STACK OF APP
+Docker Compose - 1 command --- RUNN FULL STACK OF APP
+tool
+	docker-compose.yaml
+		
+	services
+	web
+		vol
+		port
+		env
+
+	db
+
+	app
+
+docker-compose up -d
+=====================================================================================
+What is Kubernetes?
+	- Container orch tool
+	
+Why do we need it?
+Container has SCAL* issues.
+
+--- Kubernetes
+
+How Kubernetes work?
+=============================
+https://www.youtube.com/c/TheDevOpsSchool/search?query=kubernetes
+
+---------------------
+HUMAN -------------> Cluster
+
+---------------------------------------
+Workstation	---> Master(S) + Worker(S)
+
+Workstation
+- kubectl
+
+Master === Control Plane
+- Api server		--> FRONTEND of Clustor + Any Internal Commm
+- Etcd			--> Database - It store all info of Cluster
+- Controller mgr 	--> Monitoring of Clustor
+- Schedular 		-> Schedule a pod based API server request
+
+- Api server		--> POD -> Container -> Docker Image -> Google Registry
+- Etcd			--> POD -> Container -> Docker Image -> Google Registry
+- Controller mgr 	--> POD -> Container -> Docker Image -> Google Registry
+- Schedular 		--> POD -> Container -> Docker Image -> Google Registry
+
+- Kubelet
+- Docker Engine
+- kubectl
+- kube Proxy		--> POD -> Container -> Docker Image -> Google Registry
+- kubeadm init
+
+
+Worker
+- Kubelet	- Agent running all the time.
+- kube Proxy	- networking services in k8
+- Docker	- 
+- kubectl
+- kubeadm join
+
+- Kubelet
+- Docker Engine
+- kube Proxy		--> POD -> Container -> Docker Image -> Google Registry
+
+
+
+---------------------------------------
+
+VMware manage?			docker manages			kubernetes
+---------------------------------------------------------------------
+Vms				container			pod
+
+
+What is pod?
+----------------------
+- Logical definition of RUNNING APPS in Kubernetes
+- Contains
+	Container(S)
+- GET a IP ADDRESS from kube Proxy
+	Container(S) share a same ip address
+- GET a VOLUME
+	Container(S) can share these volume
+- is running as long as 
+	--- Container(S) are running
+- Lifecycle
+	pending -- running --- succeeed
+	-----------------------------------------
+
+	termination - crashloop - failed
+
+
+- POD is instantiated by KUBELET
+		KUBELET ASK DOCKER to fill container
+		KUBELET ASK KUBE PRoXY to assign IP ADDRESS
+- SAME POD U CAN NEVER GET IT. SIMILAR POD u can get it.
+- JOB Of k8 to run ur POD.
+
+
+https://github.com/kelseyhightower/kubernetes-the-hard-way
+
+===========================================================
+How to setup a Clustor?
+---------------------------------------
+
+MASTER
+- Api server		--> POD -> Container -> Docker Image -> Google Registry
+- Etcd			--> POD -> Container -> Docker Image -> Google Registry
+- Controller mgr 	--> POD -> Container -> Docker Image -> Google Registry
+- Schedular 		--> POD -> Container -> Docker Image -> Google Registry
+
+- Kubelet
+- Docker Engine
+- kubectl
+- kube Proxy		--> POD -> Container -> Docker Image -> Google Registry
+- kubeadm init
+
+
+
+Worker
+- Kubelet	
+- kube Proxy	--> POD -> Container -> Docker Image -> Google Registry
+- Docker	- 
+- kubectl
+- kubeadm join
+
+=====================================
+miniqube --> Create 1 Vm (Master+Worker) === LEARNING
+
+Manually in VMs(ANYWHERE)
+	- kubeadm
+
+Manually in Cloud (Compute + Storage + Networking + LB + )
+	- KOPS
+
+Hosted
+- AWS ----> EKS	
+- Azure ----> AKS
+- Gc - ----> GKE
+
+
+
+Your Kubernetes control-plane has initialized successfully!
+
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+Alternatively, if you are the root user, you can run:
+
+  export KUBECONFIG=/etc/kubernetes/admin.conf
+
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+Then you can join any number of worker nodes by running the following on each as root:
+
+kubeadm join 172.31.9.71:6443 --token 12htbw.me93egxlatk67b0b \
+        --discovery-token-ca-cert-hash sha256:865ac49de741ae7eea6e2a8ae6481b1375753faa98260bea13acdc256a7d726a
 
 
 
 
+workstation
+- kubectl
+	$HOME/.kube/config
+
+=====================================================
+API
+	API - CRUD
+	HTTP - GPPD
+	
+	CREATE
+		CMD
+			create
+			
+		YAML
+			create -f
+	READ
+		CMD
+			get
+		YAML
+			get -f
+	UPDATE
+		CMD
+			edit
+		YAML
+			apply -f
+	DEELETE
+		CMD
+			delete
+		YAML
+			delete -f 
 
 
 
+ 23  kubectl api-resources
+   24  clear
+   25  kubectl api-resources
+   26  clear
+   27  kubectl
+   28  clear
+   29  kubectl api-resources
+   30  clear
+   31  kubectl
+   32  kubectl version
+   33  kubectl cluster-info
+   34  kubectl api-resources
+   35  kubectl api-version
+   36  kubectl api-versions
+   37  kubectl get nodes
+   38  kubectl get pods
+   39  kubectl get pods --all-namespaces
+   40  clear
+   41  kubectl get pods --all-namespaces -o wide
+   42  cleare
+   43  clear
+   44  history
+
+
+  46  kubectl create ns rajesh
+   47  kubectl get ns
+   48  kubectl edit ns rajesh
+   49  kubectl get ns
+   50  kubectl get ns --show-lables
+   51  kubectl get ns --show-labels
+   52  clear
+   53  kubectl get ns --show-labels
+   54  kubectl delete ns rajesh
+   55  kubectl get ns --show-labels
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nodehelloworld.example.com
+  labels:
+    app: helloworld
+spec:
+  containers:
+  - name: devopsschool1
+    image: scmgalaxy/nginx-devopsschoolv1
+    ports:
+    - name: nginx-port
+      containerPort: 80
 
 
 
-
-
-
-
-
-
-
+ 60  mkdir rajesh
+   61  cd rajesh/
+   62  ls
+   63  vi pod.yaml
+   64  kubectl create -f pod.yaml
+   65  kubectl get pd
+   66  kubectl get pod
+   67  kubectl get pod -o wide
+   68  kubectl edit pod nodehelloworld.example.com
+   69  kubectl get pod -o wide
+   70  kubectl get pod -o wide --show-labels
+   71  clear
+   72  ls
+   73  vi pod.yaml
+   74  kubectl apply -f pod.yaml
+   75  kubectl get pod -o wide --show-labels
+   76  clear
+   77  kubectl delete -f pod.yaml
+   78  kubectl get pod -o wide --show-labels
+   79  history
 
 
 
