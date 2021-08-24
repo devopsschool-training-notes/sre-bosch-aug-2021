@@ -1,0 +1,249 @@
+==========================
+Git is FILESYSTEM VERSIONING TOOL.		= SHA1
+----------------------------------
+DOCKER image FILESYSTEM VERSIONING TOOL.	= SHA256
+--------------------------
+OBJECT STORAGE- 
+https://git-scm.com/book/en/v2/Git-Internals-Git-Objects
+https://devopsschool.com/slides/git/how-git-works/index.html#/
+=============================================================================
+Docker
+================================================
+What is Docker?
+------------------------------------
+	TOOL - Platform
+	Container Management
+
+
+
+	TOOL
+	- SAVE TIME
+		-- It would deploy LARGE Sets of apps in 1 SECOND
+	- SAVE COST
+		-- During running app in Data Center
+		- CPU + RAM + HD + OS LIC COST
+	- Imp EFF*
+		--
+				  Container	
+		 ---------------------------------------------------
+		DEV ==== QA ==== STAG == PROD ================ 1 SEC
+		========================================================
+		LAPTOP	===== PVT CLOUD ===== PUB CLOUD
+		===============================================
+		PHYSCIAL ---- VIRTUAL MACHINEs
+
+	What is Container?
+	- Container run your app and it HAS all env/resources for running app within a container
+	- Independent APP RUN TIME ENV.
+
+	WHAT IS env/resources????
+	- Container is having
+		1 USER SPACE		BY USER NS
+		1 NETWORK		BY NET NS
+		1 MOUNT(ROOTFS->USER FS -> APPFS)	BY MNT NS
+		1 PID			BY PID NS	
+	- CPU - RAM - ACCESS
+
+
+	What is NameSpace?
+	is a collection of Kernal Lib for diff-diff functionality
+
+	What is Kernal?
+
+	--> YOUR OS (How it works?)
+	--> YOUR VMS (How it works?)
+
+	HOW???
+	https://www.youtube.com/watch?v=z1Y_r4VI4t0
+
+	HARDWARE
+		OS
+		  KERNAL
+			NAMESPACES
+			CGROUPS
+			Capabilities
+	https://miro.medium.com/max/1200/1*Zusvp8MI28yU27SVSG0wcA.png
+
+	EAS
+	----------------------------------------
+	YOU ARE ALSO A CONTAINER
+	--------------------------------------
+	CPU?
+	RAM?
+	HDD?
+	USER
+	NET
+	FILESTSYSTEM?
+
+
+
+	---------------------------------------------------
+	How docker works?
+	-------------------------------------------
+	HUMAN --> Docker Client ------> Docker Deamon ---> ContainerD ---> Kernal
+		----------------------------------------
+				Docker Engine AKA DOCKER
+
+	---------------------------------------
+=========================================================================
+YOU WANT TO RUN APPS(1000s) - In Data Center ---Internet
+------------
+CPU
+RAM
+STOR
+
+
+Docker Components?
+-------------------------------------------------
+Docker Engine
+
+Docker Image
+- collection of file system
+- Each fs - we call it ----> LAYER
+
+ROOT FILESYSTEM --> USER FILESYSTEM  -> APP FILESYSTEM 
+----------------------------------------------------------
+ubuntu			root		bash
+ubuntu			jenkins		jenkins( jenkins -> tomcat -> java)
+centos			apache		apache
+windows19		admini*		ps
+fedora			mysql		mysql
+
+When you RUN CONTAINER - ONE COPY OF IMAGE - GET MOUTNED IN EACH CONT.
+
+Vm image
+==============================
+BOOT FILESYSTEM --> ROOT FILESYSTEM --> USER FILESYSTEM  -> APP FILESYSTEM 
+--------------------------------------------------------------------------
+KERNAL	
+
+
+Docker Registry?
+------------------------
+Collection of Repository AKA Docker Image Name
+	      Containers
+			VERSION OF FILESYSTEM 
+			ROOT FILESYSTEM --> USER FILESYSTEM  -> APP FILESYSTEM 
+	hub.dcoker.com
+	google registry
+
+
+Docker container
+------------------
+	When I RUN DOCKER IMAGE with a help docker client ---> Deamon --> ContainerD -> kernal
+	----------------
+	Kernal create
+			1 USER
+			1 MNT from Docker Image
+			1 net 
+			1 PID
+
+			&&&& ATTACHED THIS USER WITH MNT - NET - PID
+			----------------------------------------------
+					container
+	    	        
+
+
+How to install docker?
+---------------------------------------------------
+https://devopsschool.com/tutorial/docker/install-config/index.html
+3.109.203.197
+
+    1  clear
+    2  ls
+    3  sudo apt-get install     apt-transport-https     ca-certificates     curl     gnupg     lsb-release
+    4  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+    5  echo   "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    6  sudo apt-get update
+    7  sudo apt-get install docker-ce docker-ce-cli containerd.io
+    8  history
+
+
+Container Lifcycle? - 15 mins
+==================================================
+create -> start -> stop -> start -> restart -> pause -> unpause -> kill -> remove
+
+Vm Lifcycle? 
+==================================================
+create -> start -> stop -> start -> restart -> pause -> unpause -> kill -> remove
+
+ 10  which docker
+   11  which dockerd
+   12  which containerd
+   13  clear
+   14  ps -eaf | grep dockerd
+   15  docker images
+   16  docker pull httpd
+   17  docker images
+   18  clear
+   19  docker ps
+   20  docker ps -a
+   21  docker images
+   22  docker ps
+   23  docker ps -a
+   24  clear
+   25  docker create httpd
+   26  docker ps
+   27  docker ps -a
+   28  docker create --name=raj1 httpd
+   29  docker ps -a
+   30  docker create --name=raj2 httpd
+   31  docker ps -a
+   32  clear
+   33  docker ps -a
+   34  docker start 86a8e94e5e2f
+   35* docker ps
+   36  docker start 5a6355e907e3
+   37  docker ps -a
+   38  docker stop 86a8e94e5e2f
+   39  docker ps -a
+   40  docker start 86a8e94e5e2f
+   41  docker ps -a
+   42  docker restart 5a6355e907e3
+   43  docker ps -a
+   44  clear
+   45  docker pause 5a6355e907e3
+   46  docker ps -a
+   47  docker unpause 5a6355e907e3
+   48  docker ps -a
+   49  docker kill 5a6355e907e3
+   50  docker ps -a
+   51  docker rm 86a8e94e5e2f
+   52  docker rm 5a6355e907e3 df958c08bd55
+   53  docker ps -a
+   54  docker kill 86a8e94e5e2f
+   55  docker ps -a
+   56  docker start 86a8e94e5e2f
+   57  docker ps -a
+   58  clear
+   59  docker help
+   60  clear
+   61  docker info
+   62  clear
+   63  docker version
+   64  history
+
+
+
+
+How to use container?
+==================================================
+
+Assignment - 10 mins
+-----------------------------
+What is the difference between docker Stop Vs docker Kill?
+What is the difference between docker Pause Vs docker Unpuase?
+
+
+
+
+
+
+
+
+
+
+
+
+
