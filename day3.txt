@@ -1,0 +1,174 @@
+--------Kubernetes---------
+What is Namespace?
+What is deployment
+		Replicasets
+What is Services?
+What is helm?
+---------------------------------------
+
+What is deployment?
+---------------------------------
+
+-------------REPLICA SETS----------------------------
+Replication	- REplicate Multiple PODS 
+Controller	- WOuld make DESIRE == ACTUAL
+			     5 POD === 5 POD
+-----------------------------------------------------
+kubectl create deployment my-dep --image=scmgalaxy/nginx-devopsschoolv1 --replicas=3
+
+kubectl scale --replicas=5 deployment/my-dep
+
+kubectl taint node ip-172-31-9-71 node-role.kubernetes.io/master:NoSchedule-
+
+
+Versioning
+		imagev1 -> imagev2 --> imagev3
+		 ----------------------------
+Rollout
+Rollback
+
+
+ 229  kubectl get deploy
+  230  kubectl get deploy -n=rajesh
+  231  kubectl create deploy -h
+  232  clear
+  233  kubectl get nodes
+  234  kubectl taint node ip-172-31-9-71 node-role.kubernetes.io/master:NoSchedule-
+  235  clear
+  236  ls
+  237  kubectl create deployment my-dep --image=scmgalaxy/nginx-devopsschoolv1 --replicas=3
+  238  kubectl get deploy
+  239  kubectl get pods
+  240  kubectl get pods -o wide
+  241  clear
+  242  curl http://10.32.0.4
+  243  kubectl get pods -o wide
+  244  clear
+  245  ls
+  246  kubectl get deploy
+  247  kubectl edit deploy my-dep
+  248  kubectl get deploy
+  249  kubectl get pods -o wide
+  250  kubectl get deploy
+  251  clear
+  252  kubectl edit deploy my-dep
+  253  kubectl get deploy
+  254  kubectl scale -h
+  255  clear
+  256  kubectl scale --replicas=5 deployment/my-dep
+  257  kubectl scale -h
+  258  clear
+  259  kubectl get deploy
+  260  kubectl scale --replicas=10 deployment/my-dep
+  261  kubectl get deploy
+  262  kubectl scale --replicas=1 deployment/my-dep
+  263  kubectl get deploy
+  264  clear
+  265  kubectl et pod
+  266  kubectl get pods
+  267  kubectl describe pod my-dep-747b4ffb56-l2tzh
+  268  clear
+  269  kubectl get rs
+  270  kubectl get deploy
+  271  kubectl describe deploy my-dep
+  272  clear
+  273  kubectl edit deploy my-dep
+  274  kubectl get pods -o wide
+  275  curl http://10.32.0.4
+  276  kubectl scale --replicas=10 deployment/my-dep
+  277  clear
+  278  kubectl get pods -o wide
+  279  clear
+  280  kubectl get pods -o wide
+  281  curl http://10.44.0.10
+  282  kubectl rollout -h
+  283  kubectl rollout history deploy/my-dep
+  284  curl http://10.44.0.10
+  285  kubectl rollout undo -h
+  286  kubectl rollout undo deploy/my-dep --to-revision=1
+  287  kubectl get pods -o wide
+  288  clear
+  289  kubectl get pods -o wide
+  290  kubectl get pods -o widec
+  291  kubectl get pods -o wide
+  292  clear
+  293  kubectl get pods -o wide
+  294  curl http://10.44.0.14
+-----------------------------------------------
+What is Services?
+=====================================================
+
+
+
+
+LOAD BALANCER
+- NETWORK LB 	==== service
+- APP LB	==== ingress
+==================================================
+What is Service?
+-- Network LB
+-- IT BALANCE PODS INSIDE CLUSTOR
+
+How it works??
+=====================================
+How services would get uPDATED PODS Ips to Balance?
+-----
+Label
+------------------------
+When a Labels of POD - MATCHING - with "Selector" Label of Service - Those PODS get auto LB by Service.
+-------------
+
+kubectl create service clusterip my-cs --tcp=5678:80
+
+
+ 326  kubectl apply -f pod.yaml
+  327  kubectl apply -f pod1.yaml
+  328  kubectl get pods -o wide
+  329  curl http://10.44.0.1
+  330  curl http://10.44.0.2
+  331  clear
+  332  kubectl create service -h
+  333  kubectl create service clusterip -h
+  334  clear
+  335  kubectl get sbc
+  336  clear
+  337  kubectl get svc
+  338  kubectl create service clusterip my-cs --tcp=5678:80
+  339  kubectl get svc
+  340  kubectl describe svc my-cs
+  341  kubectl get pods --show-labels
+  342  kubectl edit svc my-cs
+  343  kubectl describe svc my-cs
+  344  kubectl get pods --show-labels
+  345  curl http://10.103.187.100:5678
+  346  watch curl http://10.103.187.100:5678
+
+
+Service TYPE
+-------------------------------
+- clustorIp
+
+- NodePort
+	- Create a SVC with clustorIp
+	- EXPOSE THAT SVC at EVERY NODE of the Clustor	
+	
+kubectl create service nodeport my-ns --tcp=5678:80
+
+- LoadBalancer
+	- Create a SVC with clustorIp
+	- EXPOSE THAT SVC at EVERY NODE of the Clustor	
+
+	= create a LB at Cloud
+	-- Attached all Node of the Clustor to that LB.
+
+- ExternalIP [ ASSIGNMENT ] 
+
+
+
+
+
+
+
+
+
+
