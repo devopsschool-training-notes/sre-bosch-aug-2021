@@ -162,6 +162,206 @@ kubectl create service nodeport my-ns --tcp=5678:80
 	-- Attached all Node of the Clustor to that LB.
 
 - ExternalIP [ ASSIGNMENT ] 
+===============================================================
+helm
+----------------------
+
+apt-get	
+	install - update - remove	DEBIAN	FROM Central to Local
+yum					
+	install - update - remove	RPM	FROM Central to Local
+playstore
+	install - update - remove	APK	FROM Central to Local
+
+helm
+	install - update - remove	Charts	https://artifacthub.io/
+
+	--------------------------
+	   package == Charts		
+
+	
+What is Charts?
+---------------
+	collection of YAML
+			namepsace.yaml
+			pod.yaml
+			deployment.yaml
+			service.yaml		
+			pv.yaml	
+
+helm install APP
+		SHARE using artifacthub.io
+		SHARR using Artifactory
+
+https://www.devopsschool.com/blog/?s=ingress
+
+
+
+=====================================================================================
+=====================================================================================
+Ansible
+======================================================================================
+What is Ansible?
+=======================================================================================
+Config mgmt tool.
+Python
+Redhat by IBM
+Release
+	Ansible	- CMD 
+	Tower	- GUI	- LATEST & VERIFIED - PAID
+	AWX	- GUI   - LATEST & NON-VERIFIED - FREE - nO SUPPORT
+
+what is Config mgmt?
+	------------------
+	SERVER(S) config mgmt
+
+What is there in SERVER so we manage config if it?
+---------------Resources-------------
+package		install R Up
+file		C E R
+directory	C E R
+user		A E R
+group		A E R
+apt		install re u
+cmd		run some commands
+yum		ins
+
+
+--------------------------------------------
+Why Ansible?
+---------------------------------------------
+Parrell Deployment
+Easy to learn - test - extend - debug - share - discuss
+	-------------------------------------------
+	Compare - python - perl - bash - batch - java
+
+Platform inde
+
+5000 + 5000 == 10000 FEATURE ARe Available
+
+Other ---->
+Chef - Puppet - Octopus Deploy - UDeploy
+========================================================
+Ansible Arch? ---How it works??
+-------------------------------------------------
+
+HUMAN ---> ACS -> ARS(S)
+
+ACS				ARS
+-----------------------------------------------
+Linux				ANY
+64B				ANY
+PYTHON				Linux - PYTHON
+				WINDOWS - PS + DOTNET
+
+	-----------COMM-------------WINDOWS -- USING winrm
+	-----------COMM-------------LINUX -- USING SSH 
+------------------------------------------------------
+ACS Components
+==============================================
+Ansible					DONE
+	executables
+	plugins		- Feature Of Ansible	
+	modules		- Code which executes in ARS ---- 5000 -
+	config file	/etc/ansible/ansible.cfg
+
+Inventory				DONE
+	List of IP Address of ARS
+	- CMD
+	- file
+	- SCRIPT
+
+Playbook
+	-YAML file
+	- Contains
+		PLAY
+		PLAY
+		PLAY
+		PLAY
+
+What is PLAY
+	HOSTS:	localhost OR all OR db OR web
+	TASK(S):
+		Module Name & Its Param
+		Module Name & Its Param
+		Module Name & Its Param
+		Module Name & Its Param
+
+Inventory
+----------------------------
+[web]
+65.0.124.10
+13.234.29.98
+3.108.220.61
+
+[db]
+3.108.219.132
+
+[app]
+10.0.0.3
+10.0.0.4
+10.0.0.6
+10.0.0.7
+---------------------------------------------
+Project - Setup a webserver and deploy your app(index.html)
+
+Psucode - 
+Step 1 - install apache2		Module??	apt name=apache2 state=latest
+Step 2 - copy index.html in web server	Module??	copy dest=/var/www/html/ src=index.html		
+Step 3 - start apache2			Module??	service name=apache2 state=started
+
+--------------------------
+
+---
+- name: Update web servers
+  hosts: web
+
+  tasks:
+  - name: Install apache httpd  (state=present is optional)
+    apt:
+      name: apache2
+      state: latest
+      update_cache: yes
+  - name: Copy file with owner and permissions
+    copy:
+      src: index.html	
+      dest: /var/www/html/index.html
+  - name: Start service httpd, if not started
+    service:
+      name: apache2
+      state: started
+
+
+
+ansible-playbook -i inventory web.yaml -u ubuntu -b --key-file=node.pem
+
+======================
+Lab - 10 mins
+Assignment - 3 Programs out of 10... = 30 MINS
+https://www.devopsschool.com/blog/ansible-playbook-lab-excercise-part-2/
+
+3.108.220.61
+ubuntu
+ubuntu123
+
+
+LINUX - LINUX
+	IP ADD USER PASORKEY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
