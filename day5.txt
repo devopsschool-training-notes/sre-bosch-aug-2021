@@ -1,0 +1,71 @@
+What is DevOps?
+https://www.devopsschool.com/lms/course/view.php?id=101
+
+What org Wants?
+----------------
+SAVE COST
+	- DEV 
+	- RUNNING
+
+IMpo Quality
+
+Imm feedback
+
+
+WHO iS DevOps?
+-------------
+A Person
+	WHO IS WRITING CODE for the PRODUCT
+	WHO IS WRITING CODE for the testing a PRODUCT
+	WHO IS WRITING CODE for the Infra/Ops/ for running a PRODUCT
+------------------------------------------------------------------
+	CHANGE YOUR MINDSET
+	CHANGE TEAM CULTURE
+	CHANGE Software Architecture
+	CHANGE SDLC
+	CHANGE PLAFORMS
+	CHANGE YOUR TOOL SETS
+	CHANGE PRACITICES
+	CHANGE PROCESSESS
+	AVOID WASTAGE
+	ACCEPT A REALITY
+
+https://www.devopsschool.com/blog/what-should-i-learn-for-devops-vs-devsecops-vs-sre/
+
+
+
+
+====================================================================
+Step 1 - Prom Server
+
+Step 2 - 1 Exporter - Node_Exporter
+
+
+Step 3 - Grafana
+===============================
+
+NodeExport -----> HTTP <----------PROM <------------------GRAFANA
+
+DONE				DONE
+
+
+
+- job_name: node
+  static_configs:
+  - targets: ['localhost:9100']
+
+Prom- 9090 -
+
+
+Prom Star --> 9090 <<-----> Prom
+
+===============================================================
+Rajesh@devopsschool.com
+------------------------
+www.RajeshKumar.xyz
+
+
+
+
+
+
